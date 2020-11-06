@@ -1,46 +1,48 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 
-import * as d3 from 'd3';
-import d3Scale from 'd3-scale';
+// import * as d3 from 'd3';
 
-import dataNumbers from './files/values.json'
+import BarChart from './Components/BarChart'
+import Chart from './Components/Chart'
+import GeoChart from './Components/GeoChart';
+import PlusGeoChart from './Components/PlusGeoChart';
 
 const App: React.FC = () => {
-  const [values, setValues] = useState<number[]>([0])
+    // const svgRef = useRef<SVGSVGElement>(null);  
+    // const divRef = useRef(null);  
+    // const data = [100, 200, 300, 400, 500]
 
-  useEffect(() => {
-    async function fetchData() {
-      const {data} = dataNumbers 
-      setValues(data)
-    }
-  
-    fetchData()
-  }, [])
+    // useLayoutEffect(() => {
+    //   const size = 500 
+    //   const svg = d3.select(divRef.current)
+    //                   .append("svg")
+    //                   .attr("width", size)
+    //                   .attr("height", size)
 
-  const margin = { top: 30, right: 30, bottom: 40, left: 50 };
-  const height = 300 - margin.top - margin.bottom;
-  const width = 500 - margin.left - margin.right;
-  const barWidth = 50;
-  const barOffset = 5;
-  
-  const colors = d3.scaleLinear()
-  .domain([0, values.length * .33, values.length * .66, values.length])
-  .range([1, 100]);
+    //   const rectWidth = 95;
+    //   svg.select('rect')
+    //       .data(data)
+    //       .enter()
+    //       .append('rect')
+    //       .attr('x', (d, i) => 5 + i * (rectWidth + 5))
+    //       .attr('y', d => size - d)
+    //       .attr('width', rectWidth)
+    //       .attr('height', d => d)
+    //       .attr('fill', 'red')
 
-  if (!values) return;
+    // }, [data]);
 
-  const yScale = d3.scaleLinear()
-  .domain([0, d3.max(values)])
-  .range([0, height - 10]);
-
-  const xScale = d3.scaleOrdinal()
-  .domain(d3.range(0, bardata.length))
-  .rangeBands([0, width], .2)
-
-  return (
-    <h1>Hello World</h1>
-  );
-  
-}
+    return (
+      <>
+        <BarChart />
+        <Chart />
+        <GeoChart />
+        <PlusGeoChart />
+        {/* <div id="t" ref={divRef}> */}
+          {/* <svg ref={svgRef}></svg> */}
+        {/* </div> */}
+      </>
+    )
+  };
 
 export default App;

@@ -12,8 +12,10 @@
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
     "d3": "^6.2.0",
+    "d3plus-react": "^0.6.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-google-charts": "^3.0.15",
     "react-scripts": "4.0.0",
     "typescript": "^4.0.3",
     "web-vitals": "^0.2.4"
